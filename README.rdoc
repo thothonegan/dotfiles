@@ -1,0 +1,4 @@
+=== Dotfiles ===
+
+Most files are .stuff, so make sure to search there.
+
