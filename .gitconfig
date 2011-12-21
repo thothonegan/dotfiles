@@ -1,0 +1,37 @@
+[user]
+	name = Kenneth Perry (thothonegan)
+	email = thothonegan@gmail.com
+
+[http]
+	sslVerify = false
+
+[core]
+	excludesfile = ~/.gitignore_global
+
+[difftool "sourcetree"]
+	cmd = /Users/thothonegan/Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[mergetool "sourcetree"]
+	cmd = /Users/thothonegan/Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+	interactive = auto
+
+[man]
+	viewer = konqueror
+
+[alias]
+
+	# From http://www.jukie.net/bart/blog/pimping-out-git-log
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+	# Features
+	feature-create = !sh -c 'git checkout -b $1 develop' - 
+	feature-finish = !sh -c 'git checkout develop && git merge --no-ff $1 && git branch -d $1' -
+	feature-discard = !sh -c 'git checkout develop && git branch -d $1' -
+	feature-update = !sh -c 'git rebase develop'
