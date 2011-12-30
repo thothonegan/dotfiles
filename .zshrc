@@ -40,6 +40,11 @@ source $ZSH/oh-my-zsh.sh
 # Based off default prompt from muse.zsh-theme
 PROMPT='%{$PROMPT_SUCCESS_COLOR%}%m %~%{$reset_color%} %{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status) %{$reset_color%}%{$PROMPT_PROMPT%}ᐅ%{$reset_color%} '
 
+# === PSL1GHT ===
+
+export PS3DEV=$HOME/Local/ps3dev/
+export PSL1GHT=$PS3DEV/psl1ght
+
 # === Path ===
 
 # Standard local paths
@@ -50,6 +55,9 @@ export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin
 
 # X11 apps
 export PATH=$PATH:/usr/X11/bin
+
+# PSL1GHT
+export PATH=$PATH:$PS3DEV/bin:$PS3DEV/ppu/bin:$PS3DEV/spu/bin:$PSL1GHT/bin
 
 #export PATH=/usr/local/bin:/Users/thothonegan/.gem/ruby/1.8/bin:/Users/thothonegan/Applications/Doxygen.app/Contents/Resources:/Users/thothonegan/Library/Preferences/KDE/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/gnat-gpl-2010/bin:/Developer/usr/bin:/Users/thothonegan/local/android-sdk-mac_x86/platform-tools/:/Users/thothonegan/local/android-ndk-r5c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin
 
