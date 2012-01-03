@@ -86,3 +86,9 @@ if [[ "$os" == "darwin" ]]; then
 	0xed() { open -a 0xED $@ }
 fi
 
+# Linux
+if [[ "$os" == "linux-gnu" ]]; then
+	# Make 'open' act like OSX : run kde-open
+	open() { kde-open $@ }
+fi
+
