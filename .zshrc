@@ -80,3 +80,8 @@ if [[ "$os" == "darwin" ]]; then
 	0xed() { open -a 0xED $@ }
 fi
 
+# === Ruby/Rails ===
+
+# Load RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
