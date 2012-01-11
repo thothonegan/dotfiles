@@ -39,6 +39,10 @@ fi
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=()
 
+if [[ $TERM_PROGRAM == "Apple_Terminal" ]]; then
+	plugins+=(terminalapp)
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # Adjust prompt slightly (add hostname)
@@ -80,6 +84,12 @@ os=${OSTYPE//[0-9.]/}
 if [[ "$os" == "darwin" ]]; then
 	# Allow attaching to GL programs (GLDebugger)
 	export GL_ENABLE_DEBUG_ATTACH=YES
+
+	# Use gls if available - gnu's colors are quite a bit better
+	if [[ -f /usr/local/bin/gls ]]; then
+#		eval $(gdircolors -b)
+#		alias ls="gls --color=auto";
+	fi
 
 	# Apps
 	macvim() { open -a MacVIM $@ }
