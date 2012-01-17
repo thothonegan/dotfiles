@@ -12,3 +12,6 @@ color desert
 
 " Indentation - Tabs, 4 spaces
 set tabstop=4
+
+" Enable mouse control for all modes
+set mouse=a
