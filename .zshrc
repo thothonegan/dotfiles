@@ -69,6 +69,9 @@ export PATH=$PATH:/usr/X11/bin
 # PSL1GHT
 export PATH=$PATH:$PS3DEV/bin:$PS3DEV/ppu/bin:$PS3DEV/spu/bin:$PSL1GHT/bin
 
+# G15Message
+export PATH=$PATH:$HOME/Local/g15message/bin
+
 #export PATH=/usr/local/bin:/Users/thothonegan/.gem/ruby/1.8/bin:/Users/thothonegan/Applications/Doxygen.app/Contents/Resources:/Users/thothonegan/Library/Preferences/KDE/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/gnat-gpl-2010/bin:/Developer/usr/bin:/Users/thothonegan/local/android-sdk-mac_x86/platform-tools/:/Users/thothonegan/local/android-ndk-r5c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin
 
 # === Alias functions ===
@@ -95,8 +98,8 @@ if [[ "$os" == "darwin" ]]; then
 	macvim() { open -a MacVIM $@ }
 	0xed() { open -a 0xED $@ }
 
-	# Growl - TODO: Combine with kde passive notifications for a single command?
-	growl() { echo -e $'\e]9;'${1}'\007' ; return ; }
+	# Notification using growl
+	notification() { echo -e $'\e]9;'${1}'\007' ; return ; }
 
 	# Add macro for easy access to ags
 	ags() { cd ~/Website/rails/ags/ }
@@ -106,6 +109,23 @@ fi
 if [[ "$os" == "linux-gnu" ]]; then
 	# Make 'open' act like OSX : run kde-open
 	open() { kde-open $@ }
+
+	# Add support for notification
+	notification()
+	{
+		message=${1}
+		title=${2}
+
+		if [[ ${2} == "" ]]; then
+			title="Notification";
+		fi
+
+		kdialog --passivepopup "${message}" 5 --title "${title}"
+
+		if [[ -f `which g15message` ]]; then
+			g15message -t "${title}" "${message}"
+		fi
+	}
 fi
 
 # === Ruby/Rails ===
