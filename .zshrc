@@ -94,6 +94,12 @@ if [[ "$os" == "darwin" ]]; then
 	# Apps
 	macvim() { open -a MacVIM $@ }
 	0xed() { open -a 0xED $@ }
+
+	# Growl - TODO: Combine with kde passive notifications for a single command?
+	growl() { echo -e $'\e]9;'${1}'\007' ; return ; }
+
+	# Add macro for easy access to ags
+	ags() { cd ~/Website/rails/ags/ }
 fi
 
 # Linux
