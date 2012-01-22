@@ -90,5 +90,8 @@ fi
 if [[ "$os" == "linux-gnu" ]]; then
 	# Make 'open' act like OSX : run kde-open
 	open() { kde-open $@ }
+
+	# For some reason the manpager doesnt work on linux. Set it to default.
+	unset MANPAGER
 fi
 
