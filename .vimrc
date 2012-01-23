@@ -8,7 +8,7 @@ set ruler
 set autoindent
 
 " Default color theme
-color desert
+color jellybeans
 
 " Indentation - Tabs, 4 spaces
 set tabstop=4
