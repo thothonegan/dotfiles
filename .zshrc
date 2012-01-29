@@ -59,7 +59,17 @@ fi
 # === Keychain when available - manages SSH keys ===
 
 if [[ -f `which keychain` ]]; then
-	keychain -q
+	if [[ -f ~/.ssh/id_dsa ]]; then
+		keychain -q ~/.ssh/id_dsa
+	fi
+
+	if [[ -f ~/.ssh/id_rsa ]]; then
+		keychain -q ~/.ssh/id_rsa
+	fi
+
+	# Ok, now that we're done, source the keys
+	. ~/.keychain/${HOST}-sh
+	. ~/.keychain/${HOST}-sh-gpg
 fi
 
 # === PSL1GHT ===
