@@ -56,6 +56,12 @@ if [[ -f /etc/zsh_command_not_found ]]; then
 	. /etc/zsh_command_not_found
 fi
 
+# === Keychain when available - manages SSH keys ===
+
+if [[ -f `which keychain` ]]; then
+	keychain -q
+fi
+
 # === PSL1GHT ===
 
 export PS3DEV=$HOME/Local/ps3dev/
