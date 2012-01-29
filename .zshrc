@@ -67,9 +67,14 @@ if [[ -f `which keychain` ]]; then
 		keychain -q ~/.ssh/id_rsa
 	fi
 
-	# Ok, now that we're done, source the keys
-	. ~/.keychain/${HOST}-sh
-	. ~/.keychain/${HOST}-sh-gpg
+	# Ok, now that we're done, source the keys it created
+	if [[ -f ~/.keychain/${HOST}-sh ]]; then
+		. ~/.keychain/${HOST}-sh
+	fi
+
+	if [[ -f ~/.keychain/${HOST}-sh-gpg ]]; then
+		. ~/.keychain/${HOST}-sh-gpg
+	fi
 fi
 
 # === PSL1GHT ===
