@@ -15,3 +15,8 @@ set tabstop=4
 
 " Enable mouse control for all modes
 set mouse=a
+
+" Folding : syntax based, 3 column foldbar, start at 20 so all are open
+set foldmethod=syntax
+set foldcolumn=3
+set foldlevelstart=20
