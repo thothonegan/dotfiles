@@ -163,3 +163,8 @@ fi
 # Load RVM if available
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
+
+# === Blackberry SDK ===
+
+[[ -s "$HOME/Local/bbndk-1.0/bbndk-env.sh" ]] && . "$HOME/Local/bbndk-1.0/bbndk-env.sh"
+
