@@ -8,6 +8,7 @@ set ruler
 set autoindent
 
 " Default color theme
+let g:molokai_original=1
 color molokai 
 
 " Indentation - Tabs, 4 spaces

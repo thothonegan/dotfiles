@@ -50,7 +50,7 @@ source $ZSH/oh-my-zsh.sh
 # Based off default prompt from muse.zsh-theme
 PROMPT='%{$PROMPT_SUCCESS_COLOR%}%m %~%{$reset_color%} %{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status) %{$reset_color%}%{$PROMPT_PROMPT%}ᐅ%{$reset_color%} '
 
-# === Allow ===
+# === Autocomplete after equals automatically ===
 
 setopt magic_equal_subst
 
