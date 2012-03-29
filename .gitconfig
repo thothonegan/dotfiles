@@ -2,9 +2,6 @@
 	name = Kenneth Perry (thothonegan)
 	email = Kenneth.Perry@idcprojects.com
 
-[http]
-	sslVerify = false
-
 [core]
 	excludesfile = ~/.gitignore_global
 

@@ -29,7 +29,7 @@ set foldcolumn=3
 set foldlevelstart=20
 
 " Highlight the current line
-set cul
+set nocul
 
 " Setup pathogen, the vim bundle system
 " See https://github.com/tpope/vim-pathogen
