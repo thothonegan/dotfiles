@@ -28,7 +28,7 @@ set foldmethod=syntax
 set foldcolumn=3
 set foldlevelstart=20
 
-" Highlight the current line
+" Dont highlight the current line
 set nocul
 
 " Setup pathogen, the vim bundle system
