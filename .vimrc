@@ -4,6 +4,8 @@ set nocompatible
 " GLSL syntax highlighting
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl,*.frag.glsl setf glsl 
 
+" mm is Objc - not nroff
+au BufNewFile,BufRead *.mm setf objcpp
 " Turn on syntax highlighting
 syntax on
 
