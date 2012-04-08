@@ -2,3 +2,5 @@
 
 Most files are .stuff, so make sure to search there.
 
+If you're missing the powerbar in vim, make sure you checked out the submodule in .vim (git submodule update --init)
+
