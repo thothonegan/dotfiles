@@ -1,9 +1,6 @@
 [user]
 	name = Kenneth Perry (thothonegan)
-	email = thothonegan@gmail.com
-
-[http]
-	sslVerify = false
+	email = Kenneth.Perry@idcprojects.com
 
 [core]
 	excludesfile = ~/.gitignore_global
@@ -35,3 +32,6 @@
 	feature-finish = !sh -c 'git checkout develop && git merge --no-ff $1 && git branch -d $1' -
 	feature-discard = !sh -c 'git checkout develop && git branch -d $1' -
 	feature-update = !sh -c 'git rebase develop'
+
+[push]
+	default = upstream

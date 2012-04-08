@@ -1,3 +1,11 @@
+" Disable vi compatibility
+set nocompatible
+
+" GLSL syntax highlighting
+au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl,*.frag.glsl setf glsl 
+
+" mm is Objc - not nroff
+au BufNewFile,BufRead *.mm setf objcpp
 " Turn on syntax highlighting
 syntax on
 
@@ -8,6 +16,7 @@ set ruler
 set autoindent
 
 " Default color theme
+let g:molokai_original=1
 color molokai 
 
 " Indentation - Tabs, 4 spaces
@@ -20,3 +29,17 @@ set mouse=a
 set foldmethod=syntax
 set foldcolumn=3
 set foldlevelstart=20
+
+" Dont highlight the current line
+set nocul
+
+" Setup pathogen, the vim bundle system
+" See https://github.com/tpope/vim-pathogen
+call pathogen#infect('pathogen')
+
+" Always show the statusline
+set laststatus=2
+
+" Show unicode
+set encoding=utf-8
+
