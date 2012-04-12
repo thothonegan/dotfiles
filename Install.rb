@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 
-def replaceFile(file)
-	system %Q{rm -rf "$HOME/#{file}"}
+def replaceFile(file, finalFileName)
+	system %Q{rm -rf "#{finalFileName}"}
 	linkFile(file)
 end
 
-def linkFile(file)
-	system %Q{ln -s "$PWD/#{file}" "$HOME/#{file}"}
+def linkFile(file, finalFileName)
+	system %Q{ln -s "$PWD/#{file}" "#{finalFileName}"}
 end
 
 puts ">> Installing all for #{`hostname`}"
@@ -22,11 +22,11 @@ Dir[".??*", "*"].each do |file|
 	finalFileName = File.join(ENV['HOME'], "#{file}")
 
 	if RUBY_PLATFORM.downcase.include?('haiku') and %w[.vim].include? file
-		finalFileName = File.join(ENV['HOME'], 'settings', 'vim', 'vimfiles')
+		finalFileName = File.join(ENV['HOME'], 'config', 'settings', 'vim', 'vimfiles')
 	end
 
 	if RUBY_PLATFORM.downcase.include?('haiku') and %w[.vimrc].include? file
-		finalFileName = File.join(ENV['HOME'], 'settings', 'vim', 'vimrc')
+		finalFileName = File.join(ENV['HOME'], 'config', 'settings', 'vim', 'vimrc')
 	end
 
 	if File.exist?(finalFileName)
@@ -34,15 +34,15 @@ Dir[".??*", "*"].each do |file|
 			puts "-- Ignoring #{file} (identical)"
 		elsif replaceAll
 			puts ">> Replacing #{file}"
-			replaceFile(file)
+			replaceFile(file, finalFileName)
 		else
 			puts ">> Overwrite #{finalFileName}? [yanq] "
 			case $stdin.gets.chomp
 			when 'a'
 				replaceAll = true
-				replaceFile (file)
+				replaceFile(file, finalFileName)
 			when 'y'
-				replaceFile (file)
+				replaceFile(file, finalFileName)
 			when 'q'
 				exit
 			else
@@ -51,7 +51,7 @@ Dir[".??*", "*"].each do |file|
 		end
 	else
 		puts ">> Linking #{file}"
-		linkFile(file)
+		linkFile(file, finalFileName)
 	end
 end
 
