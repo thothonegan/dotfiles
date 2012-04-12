@@ -21,6 +21,14 @@ Dir[".??*", "*"].each do |file|
 
 	finalFileName = File.join(ENV['HOME'], "#{file}")
 
+	if RUBY_PLATFORM.downcase.include?('haiku') and %w[.vim].include? file
+		finalFileName = File.join(ENV['HOME'], 'settings', 'vim', 'vimfiles')
+	end
+
+	if RUBY_PLATFORM.downcase.include?('haiku') and %w[.vimrc].include? file
+		finalFileName = File.join(ENV['HOME'], 'settings', 'vim', 'vimrc')
+	end
+
 	if File.exist?(finalFileName)
 		if File.identical? file, finalFileName
 			puts "-- Ignoring #{file} (identical)"
