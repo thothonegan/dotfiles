@@ -22,6 +22,9 @@
 [man]
 	viewer = konqueror
 
+[http]
+	sslVerify = false
+
 [alias]
 
 	# From http://www.jukie.net/bart/blog/pimping-out-git-log

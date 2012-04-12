@@ -170,5 +170,5 @@ fi
 
 # === Blackberry SDK ===
 
-[[ -s "$HOME/Local/bbndk-1.0/bbndk-env.sh" ]] && . "$HOME/Local/bbndk-1.0/bbndk-env.sh"
+#[[ -s "$HOME/Local/bbndk-1.0/bbndk-env.sh" ]] && . "$HOME/Local/bbndk-1.0/bbndk-env.sh"
 

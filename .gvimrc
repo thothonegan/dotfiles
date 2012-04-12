@@ -6,8 +6,13 @@ set bg=dark
 if &background == "dark"
 	hi normal guibg=black
 	" usually 8
-	set transp=20
+	if has("gui_macvim")
+		set transp=20
+	endif
 else
 	hi normal guibg=white
-	set transp=8
+
+	if has("gui_macvim")
+		set transp=8
+	endif
 endif
