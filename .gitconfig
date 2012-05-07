@@ -38,3 +38,7 @@
 
 [push]
 	default = upstream
+
+[url "https://vps.idcprojects.com/git/"]
+	insteadOf = idc:
+
