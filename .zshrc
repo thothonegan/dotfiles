@@ -46,9 +46,18 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # Adjust prompt slightly (add hostname)
+# We color it differently based on hostname
+host=`hostname -s`
+if [[ $host == "Griffin" ]]; then
+	PROMPT_HOSTNAME="$FG[220]%m$reset_color"
+elif [[ $host == "dragon" ]]; then
+	PROMPT_HOSTNAME="$FG[082]%m$reset_color"
+else
+	PROMPT_HOSTNAME="$FG[160]%m$reset_color"
+fi
 
 # Based off default prompt from muse.zsh-theme
-PROMPT='%{$PROMPT_SUCCESS_COLOR%}%m %~%{$reset_color%} %{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status) %{$reset_color%}%{$PROMPT_PROMPT%}ᐅ%{$reset_color%} '
+PROMPT='%{$PROMPT_HOSTNAME%} %{$PROMPT_SUCCESS_COLOR%}%~%{$reset_color%} %{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status) %{$reset_color%}%{$PROMPT_PROMPT%}ᐅ%{$reset_color%} '
 
 # === Autocomplete after equals automatically ===
 
