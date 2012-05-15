@@ -107,7 +107,9 @@ export PATH=$PATH:$HOME/Local/g15message/bin
 
 # === Alias functions ===
 
-hackerguild() { cd $HOME/Repositories/IDC/hackerguild }
+export HACKERGUILD=$HOME/Repositories/IDC/hackerguild
+
+hackerguild() { cd $HACKERGUILD }
 
 # === Platform specific ===
 
