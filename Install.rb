@@ -2,7 +2,7 @@
 
 def replaceFile(file, finalFileName)
 	system %Q{rm -rf "#{finalFileName}"}
-	linkFile(file)
+	linkFile(file, finalFileName)
 end
 
 def linkFile(file, finalFileName)
