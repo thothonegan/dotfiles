@@ -176,7 +176,7 @@ fi
 # === Ruby/Rails ===
 
 # Load RVM if available
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 
 # === Blackberry SDK ===
