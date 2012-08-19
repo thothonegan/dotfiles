@@ -38,6 +38,20 @@ function isLinux()
 	fi
 }
 
+#
+# Determine if we are running on Windows or not
+#
+function isWindows()
+{
+	if [ `uname -s` = "MINGW32_NT-6.2" ]; then
+		echo "YES";
+		return;
+	else
+		echo "NO";
+		return;
+	fi
+}
+
 # ---- MAIN PROGRAM ----
 
 # History control (Bash)
@@ -58,12 +72,18 @@ if [ -d $HOME/Local/bash-completion/ ]; then # Local
 	. $HOME/Local/bash-completion/*
 fi
 
+HOSTNAME_RUN_CMD="hostname -s"
+
+if [[ `isWindows` == "YES" ]]; then
+	HOSTNAME_RUN_CMD="hostname"
+fi
+
 # Fancy prompt
-if [[ `hostname -s` == "Griffin" ]] || [[ `hostname -s` == "r08klpwdf" ]] || [[ `hostname -s` == "r02klpwdf" ]] ; then
+if [[ `${HOSTNAME_RUN_CMD}` == "Griffin" ]] || [[ `${HOSTNAME_RUN_CMD}` == "r08klpwdf" ]] || [[ `${HOSTNAME_RUN_CMD}` == "r02klpwdf" ]] ; then
 	export hostColor="01;36m";
-elif [[ `hostname -s` == "dragon" ]]; then
+elif [[ `${HOSTNAME_RUN_CMD}` == "dragon" ]]; then
 	export hostColor="01;32m";
-elif [[ `hostname -s` == "Gargoyle" ]]; then
+elif [[ `${HOSTNAME_RUN_CMD}` == "Gargoyle" ]]; then
 	export hostColor="01;34m";
 else
 	export hostColor="01;32m";
@@ -149,6 +169,9 @@ elif [[ `isLinux` = "YES" ]]; then
 
 	# Alias open to something sane. We dont care about openvt.
 	alias open='kde-open'
+
+elif [[ `isWindows` = "YES" ]]; then
+	alias open='start'
 
 fi
 
