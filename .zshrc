@@ -3,6 +3,8 @@
 # ZSH configuration
 #
 
+export LANG=en_US.UTF-8
+
 # ======= OH-MY-ZSH setup ======
 
 # Path to your oh-my-zsh configuration.

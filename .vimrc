@@ -46,3 +46,6 @@ set laststatus=2
 " Show unicode
 set encoding=utf-8
 
+" Show tabs with the much-greater-sign
+set list listchars=tab:≫\ 
+
