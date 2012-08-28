@@ -19,6 +19,9 @@ set autoindent
 let g:molokai_original=1
 color molokai 
 
+" Set default terminal background, so we transparent properly
+hi Normal ctermbg=NONE
+
 " Indentation - Tabs, 4 spaces
 set tabstop=4
 
