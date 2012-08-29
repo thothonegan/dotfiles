@@ -17,9 +17,14 @@ puts ">> Installing all for #{`hostname`}"
 
 replaceAll = false
 
-Dir[".??*", "*"].each do |file|
+Dir[".??*", "*", ".config/*"].each do |file|
 	if %w[. .. .git .gitignore .gitmodules Install.rb README.rdoc].include? file
 		puts "-- Ignoring #{file} (ignorelist)"
+		next
+	end
+
+	if %w[.config].include? file
+		puts "-- Ignoring #{file} (handled as a subdir)"
 		next
 	end
 
