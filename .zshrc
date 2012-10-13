@@ -47,10 +47,19 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
+# For some reason, up and down arent bound properly in oh-my-zsh [wrong keycodes]. Rebind them.using terminfo
+typeset -A key
+
+key[Up]=${terminfo[kcuul]}
+key[Down]=${terminfo[kcudl]}
+
+[[ -n "${key[Up]}"   ]] && bindkey "${key[Up]}"   up-line-or-search
+[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" down-line-or-search
+
 # Adjust prompt slightly (add hostname)
 # We color it differently based on hostname
 host=`hostname -s`
-if [[ $host == "Griffin" ]]; then
+if [[ $host == "Fenrir" ]]; then
 	PROMPT_HOSTNAME="%{$FG[220]%}%m%{$reset_color%}"
 elif [[ $host == "dragon" ]]; then
 	PROMPT_HOSTNAME="%{$FG[082]%}%m%{$reset_color%}"
