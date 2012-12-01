@@ -46,8 +46,8 @@ set laststatus=2
 " Show unicode
 set encoding=utf-8
 
-" Show tabs with the much-greater-sign
-set list listchars=tab:≫\ 
+" Show tabs with the greater-sign
+set list listchars=tab:>\ 
 
 " Enable backspace. While most terminals does this fine anyways, gvim on windows has issues
 set backspace=indent,eol,start
