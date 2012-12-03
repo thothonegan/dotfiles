@@ -131,6 +131,9 @@ export HACKERGUILD=$HOME/Repositories/IDC/hackerguild
 
 hackerguild() { cd $HACKERGUILD }
 
+export IDC=$HOME/Repositories/IDC
+idc() { cd $IDC }
+
 # === Platform specific ===
 
 # Remove the version from the os
